@@ -1,0 +1,4 @@
+alias restart="shutdown -r now"
+alias spotify="flatpak run com.spotify.Client"
+alias zoom="flatpak run us.zoom.Zoom"
+alias teams="flatpak run com.microsoft.Teams"
