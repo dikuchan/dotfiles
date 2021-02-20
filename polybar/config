@@ -1,0 +1,222 @@
+; ,---.     |         |                  ,   .              |
+; |---',---.|    ,   .|---.,---.,---.    |\  |,---.,---.,---|
+; |    |   ||    |   ||   |,---||        | \ ||   ||    |   |
+; `    `---'`---'`---|`---'`---^`        `  `'`---'`    `---'
+;                `---'                                       
+; 
+; TODO:
+;   Add external color variables
+;   Add transparency
+;   Add network module
+
+[colors]
+; Polar Night
+nord-0 = #2e3440
+nord-1 = #3b4252
+nord-2 = #434c5e
+nord-3 = #4c566a
+
+; Snow Storm
+nord-4 = #d8dee9
+nord-5 = #e5e9f0
+nord-6 = #eceff4
+
+; Frost
+nord-7 = #8fbcbb
+nord-8 = #88c0d0
+nord-9 = #81a1c1
+nord-10 = #5e81ac
+
+background = ${colors.nord-0}
+background-alt = ${colors.nord-3}
+foreground = ${colors.nord-6}
+foreground-alt = ${colors.nord-4}
+
+transparent = #00ffffff
+
+[bar/main]
+width = 100%
+height = 17
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = ${colors.transparent}
+
+border-size = 0
+border-color = ${colors.transparent}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "Source Code Pro for Powerline:style=Regular:size=10;2"
+font-1 = "Source Code Pro for Powerline:style=Bold:size=10;2"
+font-2 = "FontAwesome:style=Regular:size=10;1"
+
+modules-left = bspwm
+modules-center = date
+modules-right = pulseaudio backlight battery xkeyboard
+
+tray-position = right
+tray-padding = 0
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/bspwm]
+type = internal/bspwm
+
+format-suffix = "%{F#81a1c1}%{B-}"
+
+label-focused = %{F#81a1c1}%{B#4c566a}%{F#eceff4}  %{T2}%index%  %{F#81a1c1}%{R}
+label-focused-background = ${colors.nord-3}
+label-focused-foreground = ${colors.nord-4}
+label-focused-padding = 0
+
+label-occupied = %{T2}%index%
+label-occupied-background = ${colors.nord-9}
+label-occupied-foreground = ${colors.nord-1}
+label-occupied-padding = 3
+
+label-urgent = %index%!
+label-urgent-background = ${colors.nord-3}
+label-urgent-padding = 3
+
+label-empty = 
+label-empty-foreground = ${colors.nord-0}
+label-empty-padding = 0
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = <label>
+format-foreground = ${colors.nord-4}
+format-background = ${colors.nord-3}
+format-prefix = %{F#4c566a}%{B#81a1c1}
+
+label = %{T2}λ%{T-} %percentage%
+label-padding = 2
+
+enable-scroll = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/wlan]
+type = internal/network
+interface = wlp59s0
+interval = 3.0
+
+format-foreground = ${colors.nord-5}
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %d-%m
+time = %H:%M
+
+label = %time% %date%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+format-volume-prefix = %{F#81a1c1}%{B-}
+
+label-volume-foreground = ${colors.nord-1}
+label-volume-background = ${colors.nord-9}
+label-volume-padding = 2
+label-volume = %{T2}μ%{T-} %percentage%
+
+format-muted-prefix = %{F#81a1c1}%{B-}
+
+label-muted-foreground = ${colors.nord-1}
+label-muted-background = ${colors.nord-9}
+label-muted-padding = 1
+label-muted = %{T2}μ no
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = %{F#4c566a}%{B#81a1c1}
+format = <label-layout>
+format-spacing = 0
+
+label-layout-background = ${colors.nord-3}
+label-layout-foreground = ${colors.nord-4}
+
+label-layout-padding = 2
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 94
+
+poll-interval = 5
+
+format-full-background = ${colors.nord-9}
+format-full-foreground = ${colors.nord-1}
+format-full-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-full-padding = 0
+
+format-charging-background = ${colors.nord-9}
+format-charging-foreground = ${colors.nord-1}
+format-charging-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-charging-padding = 0
+
+format-discharging-background = ${colors.nord-9}
+format-discharging-foreground = ${colors.nord-1}
+format-discharging-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-discharging-padding = 0
+
+format-full = "<label-full>  "
+format-charging = "<label-charging>  "
+format-discharging = "<label-discharging>  "
+
+label-full = %{T2}β%{T-} max
+label-charging = %{T2}β%{T-} %percentage%
+label-discharging = %{T2}β%{T-} %percentage%
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 0
+
+; vim:ft=dosini
