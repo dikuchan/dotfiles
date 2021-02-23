@@ -69,6 +69,8 @@ set completeopt-=preview
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['~/.local/bin/pyls'],
+    \ 'cpp': ['clangd'],
     \ }
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

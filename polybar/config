@@ -140,8 +140,11 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = %d-%m
+date = 
+date-alt = %d-%m-%Y
+
 time = %H:%M
+time-alt = %H:%M:%S
 
 label = %time% %date%
 
@@ -160,8 +163,8 @@ format-muted-prefix = %{F#81a1c1}%{B-}
 
 label-muted-foreground = ${colors.nord-1}
 label-muted-background = ${colors.nord-9}
-label-muted-padding = 1
-label-muted = %{T2}μ no
+label-muted-padding = 2
+label-muted = %{T2}μ%{T-} no
 
 [module/xkeyboard]
 type = internal/xkeyboard
