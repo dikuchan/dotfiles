@@ -6,8 +6,6 @@
 ; 
 ; TODO:
 ;   Add external color variables
-;   Add transparency
-;   Add network module
 
 [colors]
 ; Polar Night
@@ -57,17 +55,19 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "Source Code Pro for Powerline:style=Regular:size=10;2"
-font-1 = "Source Code Pro for Powerline:style=Bold:size=10;2"
+font-0 = "Iosevka Term Extended:style=Regular:size=10;2"
+font-1 = "Iosevka Term Extended:style=Bold:size=10;2"
+;font-0 = "Source Code Pro for Powerline:style=Regular:size=10;2"
+;font-1 = "Source Code Pro for Powerline:style=Bold:size=10;2"
 font-2 = "FontAwesome:style=Regular:size=10;1"
 
 modules-left = bspwm
 modules-center = date
-modules-right = pulseaudio backlight battery xkeyboard
+modules-right = pulseaudio backlight battery xkeyboard wlan
 
 tray-position = right
-tray-padding = 0
-;tray-background = #0063ff
+tray-padding = 2
+tray-background = ${colors.background-alt}
 
 wm-restack = bspwm
 
@@ -122,13 +122,21 @@ label = %title:0:30:...%
 
 [module/wlan]
 type = internal/network
-interface = wlp59s0
+interface = wlp3s0
 interval = 3.0
 
-format-foreground = ${colors.nord-5}
+format-full-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+
+format-connected-foreground = ${colors.nord-1}
+format-connected-background = ${colors.nord-9}
+format-connected-prefix = %{F#81a1c1}%{B#4c566a}
+
 format-connected = <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+
+label-connected-padding = 2
+label-connected = %{A1:rofi-network-manager:}%essid:0:12%%{A}
+
+format-connected-suffix = %{F#4c566a}%{B#81a1c1}
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -170,7 +178,7 @@ label-muted = %{T2}μ%{T-} no
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = %{F#4c566a}%{B#81a1c1}
+format-prefix = %{F#4c566a}%{B#8fbcbb}
 format = <label-layout>
 format-spacing = 0
 
@@ -181,25 +189,25 @@ label-layout-padding = 2
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC
 full-at = 94
 
 poll-interval = 5
 
-format-full-background = ${colors.nord-9}
+format-full-background = ${colors.nord-7}
 format-full-foreground = ${colors.nord-1}
-format-full-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-full-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
 format-full-padding = 0
 
-format-charging-background = ${colors.nord-9}
+format-charging-background = ${colors.nord-7}
 format-charging-foreground = ${colors.nord-1}
-format-charging-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-charging-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
 format-charging-padding = 0
 
-format-discharging-background = ${colors.nord-9}
+format-discharging-background = ${colors.nord-7}
 format-discharging-foreground = ${colors.nord-1}
-format-discharging-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
+format-discharging-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
 format-discharging-padding = 0
 
 format-full = "<label-full>  "

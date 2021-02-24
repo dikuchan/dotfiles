@@ -1,0 +1,8 @@
+configuration {
+	case-sensitive: true;
+    theme: "nord";
+    kb-clear-line: "Control+BackSpace";
+    kb-move-front: "Control+a";
+    kb-move-end: "Control+e";
+    kb-remove-word-back: "Control+w";
+}

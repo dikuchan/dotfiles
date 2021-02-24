@@ -6,6 +6,7 @@ export ZSH="/home/dikuchan/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/lib:$PATH
+export PATH=$PATH:$HOME/.config/polybar/network
 
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
