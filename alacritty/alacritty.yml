@@ -16,16 +16,16 @@ scrolling:
 
 font:
   normal:
-    family: Source Code Pro for Powerline
+    family: Iosevka Term Extended
     style: Regular
   bold:
-    family: Source Code Pro for Powerline
+    family: Iosevka Term Extended
     style: Bold
   italic:
-    family: Source Code Pro for Powerline
+    family: Iosevka Term Extended
     style: Italic
   bold_italic:
-    family: Source Code Pro for Powerline
+    family: Iosevka Term Extended
     style: Bold Italic
   size: 6.0
   offset:

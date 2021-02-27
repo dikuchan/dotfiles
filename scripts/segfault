@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Creates a new C++ project with the initial CMake config.
+
+[[ -z $1 ]] && { echo "Cannot create project: specify name"; exit 1; }
+
+project=${PROJECTS_DIR}/$1
+
+mkdir $project &>/dev/null
+if [ $? -ne 0 ]; then
+    echo "Cannot create project: already exists";
+    exit 1;
+fi
+cd $project
+
+dirs=(
+    src
+    include
+    build
+)
+files=(
+    CMakeLists.txt
+    README.md
+    src/CMakeLists.txt
+    src/main.cpp
+)
+
+for d in "${dirs[@]}"; do
+    mkdir $project/$d &>/dev/null
+done
+
+for f in "${diles[@]}"; do
+    touch $project/$f
+done
+
+printf "int main() {
+    return 0;
+}" >> $project/src/main.cpp
+
+printf "cmake_minimum_required (VERSION 3.10)
+project ($1)
+
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY \${CMAKE_BINARY_DIR})
+
+set (CMAKE_CXX_FLAGS \"-Wall -Wextra\")
+set (CMAKE_CXX_FLAGS_RELEASE \"-O3\")
+set (CMAKE_CXX_FLAGS_DEBUG \"-g -O1\")
+
+set (CMAKE_BUILD_TYPE Debug)
+
+add_subdirectory (src)" >> $project/CMakeLists.txt
+
+printf "include_directories(\${PROJECT_SOURCE_DIR}/include)
+
+add_executable ($1 main.cpp)
+
+set_property (TARGET $1 PROPERTY CXX_STANDARD 17)" >> $project/src/CMakeLists.txt
+
+cd $project/build
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. &>/dev/null
+ln -s $project/build/compile_commands.json $project
+
+cd $project
+git init . &>/dev/null
+touch .gitignore
+
+printf "build/
+
+.cache/
+
+compile_commands.json" >> .gitignore
+
+echo "Ok: created project $1"

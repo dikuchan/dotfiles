@@ -37,6 +37,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'lervag/vimtex'
 Plug 'puremourning/vimspector'
 
 call plug#end()
@@ -71,6 +72,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['~/.local/bin/pyls'],
     \ 'cpp': ['clangd'],
+    \ 'tex': ['texlab'],
     \ }
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

@@ -1,0 +1,51 @@
+theme:
+    active: "180, 142, 173"
+    banner: "46, 52, 64"
+    error_border: "191, 97, 106"
+    error_text: "191, 97, 106"
+    hint: "208, 135, 112"
+    hovered: "143, 188, 187"
+    inactive: "216, 222, 233"
+    playbar_background: "46, 52, 64"
+    playbar_progress: "129, 161, 193"
+    playbar_progress_text: "129, 161, 193"
+    playbar_text: "216, 222, 233"
+    selected: "129, 161, 193"
+    text: "216, 222, 233"
+    header: "216, 222, 233"
+
+behaviour:
+    seek_milliseconds: 5000
+    volume_increment: 10
+    tick_rate_milliseconds: 250
+    enable_text_emphasis: true
+    show_loading_indicator: true
+    liked_icon: ♥
+    shuffle_icon: 🔀
+    repeat_track_icon: 🔂
+    repeat_context_icon: 🔁
+    playing_icon: ▶
+    paused_icon: ⏸
+
+keybindings:
+    back: "ctrl-q"
+    jump_to_album: "a"
+    jump_to_artist_album: "A"
+    manage_devices: "d"
+    decrease_volume: "-"
+    increase_volume: "+"
+    toggle_playback: " "
+    seek_backwards: "<"
+    seek_forwards: ">"
+    next_track: "n"
+    previous_track: "p"
+    copy_song_url: "c"
+    copy_album_url: "C"
+    help: "?"
+    shuffle: "s"
+    repeat: "r"
+    search: "/"
+    audio_analysis: "v"
+    jump_to_context: "o"
+    basic_view: "B"
+    add_item_to_queue: "z"

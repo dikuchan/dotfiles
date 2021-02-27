@@ -1,11 +1,11 @@
-; ,---.     |         |                  ,   .              |
-; |---',---.|    ,   .|---.,---.,---.    |\  |,---.,---.,---|
-; |    |   ||    |   ||   |,---||        | \ ||   ||    |   |
-; `    `---'`---'`---|`---'`---^`        `  `'`---'`    `---'
-;                `---'                                       
-; 
-; TODO:
-;   Add external color variables
+;     ____        __      __                  _   __               __
+;    / __ \____  / /_  __/ /_  ____ ______   / | / /___  _________/ /
+;   / /_/ / __ \/ / / / / __ \/ __ `/ ___/  /  |/ / __ \/ ___/ __  / 
+;  / ____/ /_/ / / /_/ / /_/ / /_/ / /     / /|  / /_/ / /  / /_/ /  
+; /_/    \____/_/\__, /_.___/\__,_/_/     /_/ |_/\____/_/   \__,_/   
+;               /____/                                              
+;
+; Yeah, what a font.
 
 [colors]
 ; Polar Night
@@ -35,8 +35,8 @@ transparent = #00ffffff
 [bar/main]
 width = 100%
 height = 17
-;offset-x = 1%
-;offset-y = 1%
+; offset-x = 1%
+; offset-y = 1%
 radius = 0.0
 fixed-center = true
 
@@ -57,8 +57,6 @@ module-margin-right = 0
 
 font-0 = "Iosevka Term Extended:style=Regular:size=10;2"
 font-1 = "Iosevka Term Extended:style=Bold:size=10;2"
-;font-0 = "Source Code Pro for Powerline:style=Regular:size=10;2"
-;font-1 = "Source Code Pro for Powerline:style=Bold:size=10;2"
 font-2 = "FontAwesome:style=Regular:size=10;1"
 
 modules-left = bspwm
@@ -71,20 +69,15 @@ tray-background = ${colors.background-alt}
 
 wm-restack = bspwm
 
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [module/bspwm]
 type = internal/bspwm
 
-format-suffix = "%{F#81a1c1}%{B-}"
+format-suffix = ${env:BAR_LEFT_BLUE_SEP}
 
-label-focused = %{F#81a1c1}%{B#4c566a}%{F#eceff4}  %{T2}%index%  %{F#81a1c1}%{R}
+label-focused = ${env:BAR_LEFT_CURSOR}
 label-focused-background = ${colors.nord-3}
 label-focused-foreground = ${colors.nord-4}
 label-focused-padding = 0
@@ -102,47 +95,9 @@ label-empty =
 label-empty-foreground = ${colors.nord-0}
 label-empty-padding = 0
 
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
-
-format = <label>
-format-foreground = ${colors.nord-4}
-format-background = ${colors.nord-3}
-format-prefix = %{F#4c566a}%{B#81a1c1}
-
-label = %{T2}λ%{T-} %percentage%
-label-padding = 2
-
-enable-scroll = true
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-
-[module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-format-full-prefix = "%{F#81a1c1}%{B#4c566a}%{B#81a1c1}  "
-
-format-connected-foreground = ${colors.nord-1}
-format-connected-background = ${colors.nord-9}
-format-connected-prefix = %{F#81a1c1}%{B#4c566a}
-
-format-connected = <label-connected>
-
-label-connected-padding = 2
-label-connected = %{A1:rofi-network-manager:}%essid:0:12%%{A}
-
-format-connected-suffix = %{F#4c566a}%{B#81a1c1}
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -160,32 +115,32 @@ label = %time% %date%
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-format-volume-prefix = %{F#81a1c1}%{B-}
+format-volume-prefix = ${env:BAR_RIGHT_PREFIX_SEP}
+format-muted-prefix = ${env:BAR_RIGHT_PREFIX_SEP}
 
 label-volume-foreground = ${colors.nord-1}
 label-volume-background = ${colors.nord-9}
 label-volume-padding = 2
 label-volume = %{T2}μ%{T-} %percentage%
 
-format-muted-prefix = %{F#81a1c1}%{B-}
-
 label-muted-foreground = ${colors.nord-1}
 label-muted-background = ${colors.nord-9}
 label-muted-padding = 2
 label-muted = %{T2}μ%{T-} no
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
 
-format-prefix = %{F#4c566a}%{B#8fbcbb}
-format = <label-layout>
-format-spacing = 0
+format = <label>
+format-foreground = ${colors.nord-4}
+format-background = ${colors.nord-3}
+format-prefix = ${env:BAR_RIGHT_GREY_SEP}
 
-label-layout-background = ${colors.nord-3}
-label-layout-foreground = ${colors.nord-4}
+label = %{T2}λ%{T-} %percentage%
+label-padding = 2
 
-label-layout-padding = 2
+enable-scroll = true
 
 [module/battery]
 type = internal/battery
@@ -195,19 +150,21 @@ full-at = 94
 
 poll-interval = 5
 
+; The battery module is bugged.
+
 format-full-background = ${colors.nord-7}
 format-full-foreground = ${colors.nord-1}
-format-full-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
+format-full-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
 format-full-padding = 0
 
 format-charging-background = ${colors.nord-7}
 format-charging-foreground = ${colors.nord-1}
-format-charging-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
+format-charging-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
 format-charging-padding = 0
 
 format-discharging-background = ${colors.nord-7}
 format-discharging-foreground = ${colors.nord-1}
-format-discharging-prefix = "%{F#8fbcbb}%{B#4c566a}%{B#8fbcbb}  "
+format-discharging-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
 format-discharging-padding = 0
 
 format-full = "<label-full>  "
@@ -218,12 +175,43 @@ label-full = %{T2}β%{T-} max
 label-charging = %{T2}β%{T-} %percentage%
 label-discharging = %{T2}β%{T-} %percentage%
 
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = ${env:BAR_RIGHT_GREEN_SEP}
+format = <label-layout>
+format-spacing = 0
+
+label-layout-background = ${colors.nord-3}
+label-layout-foreground = ${colors.nord-4}
+
+label-layout-padding = 2
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-full-prefix = ${env:BAR_RIGHT_BLUE_SEP}
+
+format-connected = <label-connected>
+format-connected-foreground = ${colors.nord-1}
+format-connected-background = ${colors.nord-9}
+format-connected-prefix = ${env:BAR_RIGHT_BLUE_SEP}
+format-connected-suffix = ${env:BAR_RIGHT_GREY_SEP}
+
+label-connected-padding = 2
+label-connected = %{A1:rofi-network-manager:}%essid:0:12%%{A}
+
+format-disconnected =
+
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
+; compositing-background = xor
+; compositing-background = screen
+; compositing-foreground = source
+; compositing-border = over
 pseudo-transparency = true
 
 [global/wm]
