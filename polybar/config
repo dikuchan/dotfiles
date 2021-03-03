@@ -91,7 +91,7 @@ label-focused-padding = 0
 
 label-occupied = %{T2}%index%
 label-occupied-background = ${colors.nord-9}
-label-occupied-foreground = ${colors.nord-1}
+label-occupied-foreground = ${colors.nord-0}
 label-occupied-padding = 3
 
 label-urgent = %index%!
@@ -125,13 +125,13 @@ format-volume = <label-volume>
 format-volume-prefix = ${env:BAR_RIGHT_INF}
 format-muted-prefix = ${env:BAR_RIGHT_INF}
 
-label-volume-foreground = ${colors.nord-1}
 label-volume-background = ${colors.nord-9}
+label-volume-foreground = ${colors.nord-0}
 label-volume-padding = 2
 label-volume = %{T2}μ%{T-} %percentage%
 
-label-muted-foreground = ${colors.nord-1}
 label-muted-background = ${colors.nord-9}
+label-muted-foreground = ${colors.nord-0}
 label-muted-padding = 2
 label-muted = %{T2}μ%{T-} no
 
@@ -140,8 +140,8 @@ type = internal/backlight
 card = intel_backlight
 
 format = <label>
-format-foreground = ${colors.nord-4}
 format-background = ${colors.nord-3}
+format-foreground = ${colors.nord-4}
 format-prefix = ${env:BAR_RIGHT_3_ON_9}
 
 label = %{T2}λ%{T-} %percentage%
@@ -160,19 +160,19 @@ poll-interval = 5
 ; Padding in battery module is bugged.
 
 format-full-background = ${colors.nord-7}
-format-full-foreground = ${colors.nord-1}
+format-full-foreground = ${colors.nord-0}
 format-full-prefix = ${env:BAR_RIGHT_7_ON_3}
 format-full-suffix = ${env:BAR_RIGHT_3_ON_7}
 format-full-padding = 0
 
 format-charging-background = ${colors.nord-14}
-format-charging-foreground = ${colors.nord-1}
+format-charging-foreground = ${colors.nord-0}
 format-charging-prefix = ${env:BAR_RIGHT_14_ON_3}
 format-charging-suffix = ${env:BAR_RIGHT_3_ON_14}
 format-charging-padding = 0
 
 format-discharging-background = ${colors.nord-11}
-format-discharging-foreground = ${colors.nord-1}
+format-discharging-foreground = ${colors.nord-0}
 format-discharging-prefix = ${env:BAR_RIGHT_11_ON_3}
 format-discharging-suffix = ${env:BAR_RIGHT_3_ON_11}
 format-discharging-padding = 0
@@ -206,8 +206,8 @@ interval = 3.0
 format-full-prefix = ${env:BAR_RIGHT_9_ON_3}
 
 format-connected = <label-connected>
-format-connected-foreground = ${colors.nord-1}
 format-connected-background = ${colors.nord-9}
+format-connected-foreground = ${colors.nord-0}
 format-connected-prefix = ${env:BAR_RIGHT_9_ON_3}
 format-connected-suffix = ${env:BAR_RIGHT_3_ON_9}
 
