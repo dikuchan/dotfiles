@@ -25,6 +25,13 @@ nord-8 = #88c0d0
 nord-9 = #81a1c1
 nord-10 = #5e81ac
 
+; Aurora
+nord-11 = #bf616a
+nord-12 = #d08770
+nord-13 = #ebcb8b
+nord-14 = #a3be8c
+nord-15 = #b48ead
+
 background = ${colors.nord-0}
 background-alt = ${colors.nord-3}
 foreground = ${colors.nord-6}
@@ -75,9 +82,9 @@ cursor-scroll = ns-resize
 [module/bspwm]
 type = internal/bspwm
 
-format-suffix = ${env:BAR_LEFT_BLUE_SEP}
+format-suffix = ${env:BAR_LEFT_SUF}
 
-label-focused = ${env:BAR_LEFT_CURSOR}
+label-focused = ${env:BAR_LEFT_IND}
 label-focused-background = ${colors.nord-3}
 label-focused-foreground = ${colors.nord-4}
 label-focused-padding = 0
@@ -115,8 +122,8 @@ label = %time% %date%
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-format-volume-prefix = ${env:BAR_RIGHT_PREFIX_SEP}
-format-muted-prefix = ${env:BAR_RIGHT_PREFIX_SEP}
+format-volume-prefix = ${env:BAR_RIGHT_INF}
+format-muted-prefix = ${env:BAR_RIGHT_INF}
 
 label-volume-foreground = ${colors.nord-1}
 label-volume-background = ${colors.nord-9}
@@ -135,7 +142,7 @@ card = intel_backlight
 format = <label>
 format-foreground = ${colors.nord-4}
 format-background = ${colors.nord-3}
-format-prefix = ${env:BAR_RIGHT_GREY_SEP}
+format-prefix = ${env:BAR_RIGHT_3_ON_9}
 
 label = %{T2}λ%{T-} %percentage%
 label-padding = 2
@@ -150,36 +157,39 @@ full-at = 94
 
 poll-interval = 5
 
-; The battery module is bugged.
+; Padding in battery module is bugged.
 
 format-full-background = ${colors.nord-7}
 format-full-foreground = ${colors.nord-1}
-format-full-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
+format-full-prefix = ${env:BAR_RIGHT_7_ON_3}
+format-full-suffix = ${env:BAR_RIGHT_3_ON_7}
 format-full-padding = 0
 
-format-charging-background = ${colors.nord-7}
+format-charging-background = ${colors.nord-14}
 format-charging-foreground = ${colors.nord-1}
-format-charging-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
+format-charging-prefix = ${env:BAR_RIGHT_14_ON_3}
+format-charging-suffix = ${env:BAR_RIGHT_3_ON_14}
 format-charging-padding = 0
 
-format-discharging-background = ${colors.nord-7}
+format-discharging-background = ${colors.nord-11}
 format-discharging-foreground = ${colors.nord-1}
-format-discharging-prefix = ${env:BAR_RIGHT_GREEN_PREFIX}
+format-discharging-prefix = ${env:BAR_RIGHT_11_ON_3}
+format-discharging-suffix = ${env:BAR_RIGHT_3_ON_11}
 format-discharging-padding = 0
 
 format-full = "<label-full>  "
 format-charging = "<label-charging>  "
 format-discharging = "<label-discharging>  "
 
-label-full = %{T2}β%{T-} max
-label-charging = %{T2}β%{T-} %percentage%
-label-discharging = %{T2}β%{T-} %percentage%
+label-full = "  %{T2}β%{T-} max"
+label-charging = "  %{T2}β%{T-} %percentage%"
+label-discharging = "  %{T2}β%{T-} %percentage%"
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = ${env:BAR_RIGHT_GREEN_SEP}
+format-prefix = 
 format = <label-layout>
 format-spacing = 0
 
@@ -193,13 +203,13 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-format-full-prefix = ${env:BAR_RIGHT_BLUE_SEP}
+format-full-prefix = ${env:BAR_RIGHT_9_ON_3}
 
 format-connected = <label-connected>
 format-connected-foreground = ${colors.nord-1}
 format-connected-background = ${colors.nord-9}
-format-connected-prefix = ${env:BAR_RIGHT_BLUE_SEP}
-format-connected-suffix = ${env:BAR_RIGHT_GREY_SEP}
+format-connected-prefix = ${env:BAR_RIGHT_9_ON_3}
+format-connected-suffix = ${env:BAR_RIGHT_3_ON_9}
 
 label-connected-padding = 2
 label-connected = %{A1:rofi-network-manager:}%essid:0:12%%{A}

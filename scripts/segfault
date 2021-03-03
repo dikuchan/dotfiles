@@ -29,7 +29,7 @@ for d in "${dirs[@]}"; do
     mkdir $project/$d &>/dev/null
 done
 
-for f in "${diles[@]}"; do
+for f in "${files[@]}"; do
     touch $project/$f
 done
 

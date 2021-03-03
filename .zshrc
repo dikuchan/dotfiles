@@ -15,6 +15,7 @@ export PATH=$HOME/.local/lib:$PATH
 export PATH=$HOME/.config/polybar/network:$PATH
 export PATH=$HOME/.scripts:$PATH
 
+export PANDOC_FONT="ClearSans"
 export PROJECTS_DIR=$HOME/Projects
 export OPAMSWITCH=lama
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
@@ -22,7 +23,7 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=1
 # Aliases
 
 source $HOME/.aliases
-source $HOME/.colors
+source $HOME/.bar
 
 # OhMyZsh
 
@@ -44,5 +45,5 @@ test -r /home/dikuchan/.opam/opam-init/init.zsh && . /home/dikuchan/.opam/opam-i
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vi'
 else
-    export EDITOR='mvim'
+    export EDITOR='nvim'
 fi

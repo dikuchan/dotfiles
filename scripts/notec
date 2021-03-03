@@ -1,0 +1,6 @@
+#!/bin/bash
+
+fname=$1
+fname="${filename%%.*}"
+font="mainfont:$PANDOC_FONT"
+pandoc $1 --pdf-engine=xelatex -V $font -o ${fname}.pdf && zathura ${fname}.pdf

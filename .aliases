@@ -1,4 +1,15 @@
+alias sudo="sudo "
+alias e="nvim"
+alias py="python"
 alias restart="shutdown -r now"
+
+# Chained
+alias edit-zsh="nvim ~/.zshrc && source ~/.zshrc"
+alias xclip="xclip -selection c"
+
+# Applications
 alias spotify="flatpak run com.spotify.Client"
 alias zoom="flatpak run us.zoom.Zoom"
 alias teams="flatpak run com.microsoft.Teams"
+alias soulseek="SoulSeek.AppImage"
+alias syncplay="Syncplay.AppImage"

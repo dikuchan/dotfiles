@@ -1,0 +1,41 @@
+# Polar Night
+export BAR_COL_0="#2e3440"
+export BAR_COL_1="#3b4252"
+export BAR_COL_2="#424c5e"
+export BAR_COL_3="#4c566a"
+
+# Snow Storm
+export BAR_COL_4="#d8dee9"
+export BAR_COL_5="#e5e9f0"
+export BAR_COL_6="#eceff4"
+
+# Frost
+export BAR_COL_7="#8fbcbb"
+export BAR_COL_8="#88c0d0"
+export BAR_COL_9="#81a1c1"
+export BAR_COL_10="#5e81ac"
+
+# Aurora
+export BAR_COL_11="#bf616a"
+export BAR_COL_12="#d08770"
+export BAR_COL_13="#ebcb8b"
+export BAR_COL_14="#a3be8c"
+export BAR_COL_15="#b48ead"
+
+# Symbols
+export BAR_LSEP=""
+export BAR_RSEP=""
+
+# Combinations
+export BAR_LEFT_SUF="%{F$BAR_COL_9}%{B-}$BAR_LSEP"
+export BAR_LEFT_IND="%{F$BAR_COL_9}%{B$BAR_COL_3}$BAR_LSEP%{F$BAR_COL_6}  %{T2}%index%  %{F$BAR_COL_9}%{R}$BAR_LSEP"
+export BAR_RIGHT_INF="%{F$BAR_COL_9}%{B-}$BAR_RSEP"
+
+export BAR_RIGHT_3_ON_9="%{F$BAR_COL_3}%{B$BAR_COL_9}$BAR_RSEP"
+export BAR_RIGHT_9_ON_3="%{F$BAR_COL_9}%{B$BAR_COL_3}$BAR_RSEP"
+export BAR_RIGHT_3_ON_7="%{F$BAR_COL_3}%{B$BAR_COL_7}$BAR_RSEP"
+export BAR_RIGHT_7_ON_3="%{F$BAR_COL_7}%{B$BAR_COL_3}$BAR_RSEP"
+export BAR_RIGHT_3_ON_14="%{F$BAR_COL_3}%{B$BAR_COL_14}$BAR_RSEP"
+export BAR_RIGHT_14_ON_3="%{F$BAR_COL_14}%{B$BAR_COL_3}$BAR_RSEP"
+export BAR_RIGHT_3_ON_11="%{F$BAR_COL_3}%{B$BAR_COL_11}$BAR_RSEP"
+export BAR_RIGHT_11_ON_3="%{F$BAR_COL_11}%{B$BAR_COL_3}$BAR_RSEP"
