@@ -1,0 +1,100 @@
+[global]
+    # Appearance
+
+    follow = keyboard
+
+    geometry = "280x5-13+30"
+    indicate_hidden = no
+    shrink = no
+
+    transparency = 0
+    separator_color = frame
+
+    notification_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 2
+
+    sort = yes
+    idle_threshold = 120
+
+    # Text
+
+    font = Iosevka Term Extended 11
+    line_height = 0
+
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+
+    show_age_threshold = 60
+
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    # Icons
+
+    icon_position = right
+    max_icon_size = 32
+    icon_path = /usr/share/icons/Pop/16x16/status/:/usr/share/icons/Pop/16x16/devices/
+
+    # History
+
+    sticky_history = yes
+    history_length = 20
+
+    # Misc
+
+    # dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/sensible-browser
+    always_run_script = true
+
+    title = Dunst
+    class = Dunst
+
+    startup_notification = false
+    verbosity = mesg
+
+    corner_radius = 0
+
+    # Legacy
+
+    force_xinerama = false
+
+    # Mouse
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    frame_color = "#81a1c1"
+    timeout = 10
+
+[urgency_normal]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    frame_color = "#8fbcbb"
+    timeout = 10
+
+[urgency_critical]
+    background = "#d08770"
+    foreground = "#434c5e"
+    frame_color = "#ebcb8b"
+    timeout = 0
